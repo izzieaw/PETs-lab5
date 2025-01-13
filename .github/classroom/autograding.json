@@ -1,0 +1,54 @@
+{
+  "tests": [
+    {
+      "name": "task 1",
+      "setup": "",
+      "run": "cargo test test_polynomial_evaluation",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "task 2",
+      "setup": "",
+      "run": "cargo test test_polynomial_addition",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "task 3",
+      "setup": "",
+      "run": "cargo test test_polynomial_multiplication",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "task 4",
+      "setup": "",
+      "run": "cargo test test_polynomial_representation",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "task 5",
+      "setup": "",
+      "run": "cargo test test_comp_intersection",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    }
+  ]
+}

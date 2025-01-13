@@ -1,0 +1,9 @@
+{
+	"name": "PETS lab psi",
+	"image": "mcr.microsoft.com/devcontainers/rust:latest",
+	"build": {
+		"context": "..",
+	},
+	"extensions": [
+	]
+}
