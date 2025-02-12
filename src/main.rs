@@ -43,6 +43,11 @@ fn polynomial_evaluation(p: &Poly, a: i128, m: i128) -> i128 {
     let mut result: i128 = 0;
     // TODO: ADD CODE HERE
 
+    // degree = length(P)
+    // use for loop: 
+    // for i in range:
+    // result = result + P[i] * (a ** degree)
+
     result % m
 }
 
