@@ -109,13 +109,50 @@ fn polynomial_addition(p_1: &Poly, p_2: &Poly, m: i128) -> Poly {
 fn polynomial_multiplication(p_1: &Poly, p_2: &Poly, m: i128) -> Poly {
     let mut result: Poly = Poly::new();
 
+    let len = p_1.len() as isize - p_2.len() as isize;
+    let mut p1 = p_1.clone(); // have to do this as p_1, p_2 are unmutable
+    let mut p2 = p_2.clone();
+
+
+    // pad p_2 so it's same size as p_1
+    if len > 0 {
+        let lenp2 = len as usize;
+        for i in 0..lenp2{
+            p2.insert(0, 0);
+        }
+    }
+    // pad p_1 so it's same size as p_2
+    if len < 0 {
+        let lenp1 = len.abs() as usize;
+        for i in 0..lenp1{
+            p1.insert(0, 0);
+        }
+    }
+
+    let result_len = p1.len() * 2 - 1;
+
+    for i in 0..result_len {
+        let mut test = 0;
+        for j in 0..p1.len() + 1 {
+            if i >= j && i-j <= p1.len() {
+                test = (test + p1[j] * p2[i-j]) % m ;
+            }
+    
+        }
+        result.push(test);
+    }
+
+    // get rid of 0s at beginning of result
+    while result.len() > 1 && result[0] == 0 {
+        result.remove(0);
+    }
   
     // pad shorter like in task2 to have zeros
     // len = len(p1) = len(p2)
     // len(results) = len^2
     // for i, j in len, i!=j {
     //      result[i*j] = p1[i] * p2[j]
-    // get rid of 0s at beginning of result
+    
 
     result
 }
