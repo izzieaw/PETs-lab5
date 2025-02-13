@@ -41,12 +41,12 @@ fn gen_random_poly(degree: i128, m: i128) -> Poly {
 //       *** Important: Do not use any library to evaluate the polynomial.
 fn polynomial_evaluation(p: &Poly, a: i128, m: i128) -> i128 {
     let mut result: i128 = 0;
-    // TODO: ADD CODE HERE
 
     for i in 0..=p.len()-1 {
-        result = result + p[i] * a.pow((p.len() - 1 - i) as u32)
+        let power = mod_exp(a, (p.len() - 1 - i) as i128, m);
+        let new = p[i] * power;
+        result += new
     }
-    // result = result + P[i] * (a ** degree)
 
     result % m
 }
