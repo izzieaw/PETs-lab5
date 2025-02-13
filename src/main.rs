@@ -68,17 +68,18 @@ fn polynomial_addition(p_1: &Poly, p_2: &Poly, m: i128) -> Poly {
     let mut result: Poly = Poly::new();
     
     let len = p_1.len() as isize - p_2.len() as isize;
-    let mut p1 = p_1.clone();
+    let mut p1 = p_1.clone(); // have to do this as p_1, p_2 are unmutable
     let mut p2 = p_2.clone();
 
 
+    // pad p_2 so it's same size as p_1
     if len > 0 {
         let lenp2 = len as usize;
         for i in 0..lenp2{
             p2.insert(0, 0);
         }
     }
-
+    // pad p_1 so it's same size as p_2
     if len < 0 {
         let lenp1 = len.abs() as usize;
         for i in 0..lenp1{
@@ -107,7 +108,14 @@ fn polynomial_addition(p_1: &Poly, p_2: &Poly, m: i128) -> Poly {
 
 fn polynomial_multiplication(p_1: &Poly, p_2: &Poly, m: i128) -> Poly {
     let mut result: Poly = Poly::new();
-    // TODO: ADD CODE HERE
+
+  
+    // pad shorter like in task2 to have zeros
+    // len = len(p1) = len(p2)
+    // len(results) = len^2
+    // for i, j in len, i!=j {
+    //      result[i*j] = p1[i] * p2[j]
+    // get rid of 0s at beginning of result
 
     result
 }
