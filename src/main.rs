@@ -129,15 +129,14 @@ fn polynomial_multiplication(p_1: &Poly, p_2: &Poly, m: i128) -> Poly {
         }
     }
 
-    let result_len = p1.len() * 2 - 1;
+    let result_len = (p1.len() * 2) - 1;
 
     for i in 0..result_len {
         let mut test = 0;
-        for j in 0..p1.len() + 1 {
-            if i >= j && i-j <= p1.len() {
-                test = (test + p1[j] * p2[i-j]) % m ;
+        for j in 0..=i {
+            if j < p1.len() && (i - j) < p1.len() {
+                test = (test + p1[j] * p2[i - j]) % m;
             }
-    
         }
         result.push(test);
     }
@@ -147,13 +146,6 @@ fn polynomial_multiplication(p_1: &Poly, p_2: &Poly, m: i128) -> Poly {
         result.remove(0);
     }
   
-    // pad shorter like in task2 to have zeros
-    // len = len(p1) = len(p2)
-    // len(results) = len^2
-    // for i, j in len, i!=j {
-    //      result[i*j] = p1[i] * p2[j]
-    
-
     result
 }
 
