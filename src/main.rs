@@ -66,7 +66,31 @@ fn polynomial_evaluation(p: &Poly, a: i128, m: i128) -> i128 {
 
 fn polynomial_addition(p_1: &Poly, p_2: &Poly, m: i128) -> Poly {
     let mut result: Poly = Poly::new();
-    // TODO: ADD CODE HERE
+    
+    let len = p_1.len() as isize - p_2.len() as isize;
+    let mut p1 = p_1.clone();
+    let mut p2 = p_2.clone();
+
+
+    if len > 0 {
+        let lenp2 = len as usize;
+        for i in 0..lenp2{
+            p2.insert(0, 0);
+        }
+    }
+
+    if len < 0 {
+        let lenp1 = len.abs() as usize;
+        for i in 0..lenp1{
+            p1.insert(0, 0);
+        }
+    }
+
+
+    for i in 0..p1.len() {
+        let sum = (p1[i] + p2[i]) % m;
+        result.push(sum);
+    }
 
     result
 }
