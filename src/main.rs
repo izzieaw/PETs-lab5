@@ -171,9 +171,16 @@ fn polynomial_representation(s: &Vec<i128>, m: i128) -> Poly {
         polynomials[i].push(-s[i]);
     }
 
+    // make individual polynomials e.g. x-2 immutable
+    let mut poly_refs: Vec<&Poly> = Vec::new();
+    for i in 0..s.len() {
+        let poly_ref: &Poly = &polynomials[i];
+        poly_refs.push(poly_ref);
+    }
+
 
     for i in 1..s.len() {
-        result = polynomial_multiplication(polynomials[i-1], polynomials[i], m)
+        result = polynomial_multiplication(poly_refs[i-1], poly_refs[i], m)
     }
 
     result
