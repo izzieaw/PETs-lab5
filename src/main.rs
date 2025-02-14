@@ -159,6 +159,23 @@ fn polynomial_representation(s: &Vec<i128>, m: i128) -> Poly {
     let mut result: Poly = Poly::new();
     // TODO: ADD CODE HERE
 
+    // initialise s.len() polynomials
+    let mut polynomials: Vec<Poly> = Vec::new();
+    for _ in s.iter() {
+        let poly = Poly::new();
+        polynomials.push(poly);
+    }
+
+    for i in 0..s.len() {
+        polynomials[i].push(1);
+        polynomials[i].push(-s[i]);
+    }
+
+
+    for i in 1..s.len() {
+        result = polynomial_multiplication(polynomials[i-1], polynomials[i], m)
+    }
+
     result
 }
 
