@@ -157,7 +157,6 @@ fn polynomial_multiplication(p_1: &Poly, p_2: &Poly, m: i128) -> Poly {
 //           Hint: You can make use of your `polynomial_multiplication` function.
 fn polynomial_representation(s: &Vec<i128>, m: i128) -> Poly {
     let mut result: Poly = Poly::new();
-    // TODO: ADD CODE HERE
 
     // initialise s.len() polynomials
     let mut polynomials: Vec<Poly> = Vec::new();
@@ -207,7 +206,16 @@ fn polynomial_representation(s: &Vec<i128>, m: i128) -> Poly {
 
 fn comp_intersection(a: Vec<i128>, b: Vec<i128>, m: i128) -> Vec<i128> {
     let mut result: Poly = Poly::new();
-    // TODO: ADD CODE HERE
+    
+    // 1.
+    let p_1 = polynomial_representation(&a, m);
+
+    // 2.
+    let r_1 = gen_random_poly(p_1.len(), m);
+
+
+    // 4.
+    let p_2 = polynomial_representation(&b, m);
 
     result
 }
