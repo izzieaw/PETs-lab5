@@ -178,9 +178,11 @@ fn polynomial_representation(s: &Vec<i128>, m: i128) -> Poly {
         poly_refs.push(poly_ref);
     }
 
+    let one_poly: Poly = vec![0, 1];
+    let mut result = polynomial_multiplication(poly_refs[0], &one_poly, m);
 
     for i in 1..s.len() {
-        result = polynomial_multiplication(poly_refs[i-1], poly_refs[i], m)
+        result = polynomial_multiplication(&result, poly_refs[i], m)
     }
 
     result
