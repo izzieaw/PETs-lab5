@@ -209,13 +209,21 @@ fn comp_intersection(a: Vec<i128>, b: Vec<i128>, m: i128) -> Vec<i128> {
     
     // 1.
     let p_1 = polynomial_representation(&a, m);
-
     // 2.
-    let r_1 = gen_random_poly(p_1.len(), m);
-
+    let r_1 = gen_random_poly(p_1.len() as i128, m);
+    // 3.
+    let product_1 = polynomial_multiplication(&p_1, &r_1, m);
 
     // 4.
     let p_2 = polynomial_representation(&b, m);
+    // 5.
+    let r_2 = gen_random_poly(p_2.len() as i128, m);
+    // 6.
+    let product_2 = polynomial_multiplication(&p_2, &r_2, m);
+
+    // 7.
+    let res = polynomial_addition(&product_1, &product_2, m);
+
 
     result
 }
