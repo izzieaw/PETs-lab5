@@ -223,6 +223,12 @@ fn comp_intersection(a: Vec<i128>, b: Vec<i128>, m: i128) -> Vec<i128> {
 
     // 7.
     let res = polynomial_addition(&product_1, &product_2, m);
+    // 8.
+    for i in 0..a.len() {
+        if polynomial_evaluation(&res, a[i], m) == 0 {
+            result.push(a[i]);
+        }
+    }
 
 
     result
