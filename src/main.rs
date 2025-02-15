@@ -247,11 +247,10 @@ fn comp_intersection(a: Vec<i128>, b: Vec<i128>, m: i128) -> Vec<i128> {
 // Explain your answer in detail, why it is (not) secure.
 //
 //
-// TODO: ADD YOUR ANSWER HERE
-//
-//
-//
-//
+// Multiplying their respective polynomials p_1, p_2 by random polynomials doesnt change the roots, so the polynomial mult. that they send to each other will still contain their secrets.
+// The security depends on the degree of (both p_i and r_i) polynomials and if A and B know anything about the number of secrets the other party has.
+// As r_i have the same degree as their respective p_i, at face value this gives the other party a 50% chance at correctly guessing their secrets. 
+// 
 //
 //
 
