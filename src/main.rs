@@ -167,7 +167,7 @@ fn polynomial_representation(s: &Vec<i128>, m: i128) -> Poly {
 
     for i in 0..s.len() {
         polynomials[i].push(1);
-        polynomials[i].push(-s[i]);
+        polynomials[i].push(m - s[i]);
     }
 
     // make individual polynomials e.g. x-2 immutable
