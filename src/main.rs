@@ -155,6 +155,7 @@ fn polynomial_multiplication(p_1: &Poly, p_2: &Poly, m: i128) -> Poly {
 //           For example, when S = {2, 3}, then P = (x-2)*(x-3) = x^2 - 5 * x + 6 and the function returns [1, -5, 6]
 //           Remember to work modulus m in your implementation!
 //           Hint: You can make use of your `polynomial_multiplication` function.
+
 fn polynomial_representation(s: &Vec<i128>, m: i128) -> Poly {
     let mut result: Poly = Poly::new();
 
@@ -249,10 +250,13 @@ fn comp_intersection(a: Vec<i128>, b: Vec<i128>, m: i128) -> Vec<i128> {
 
 // ANSWER:
 // 
-// Multiplying their respective polynomials p_1, p_2 by random polynomials doesnt change the roots, so the polynomial mult. that they send to each other will still contain their secrets.
-// The security depends on the degree of (both p_i and r_i) polynomials and if A and B know anything about the number of secrets the other party has.
-// As r_i have the same degree as their respective p_i, at face value this gives the other party a 50% chance at correctly guessing their secrets. 
-// 
+// Multiplying their respective polynomials P_1, P_2 by random polynomials doesn't change the roots, so the resulting polynomial that they send to each 
+//     other will still contain their secrets. 
+// The security depends on the degree of (both P_i and R_i) polynomials and if A and B know anything about the number of secrets the other party has.
+// The higher the degree of R_i, given that the degree of the polynomials is equal to the number of its roots, the more secure the protocol is.
+// If one party does not know the number of secrets the other party has, the protocol is clearly more secure.
+// However, overall this protocol is not very secure, as both parties have access to Res, and can use this and their knowledge about their own polynomial 
+//     P_i to potentially infer details about the other party's secrets.
 
 
 fn main() {
